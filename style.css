@@ -68,8 +68,7 @@ body * {
 }
 
 .light #switch-theme button {
-    left: initial;
-    right: 0;
+    animation: slide-in 0.2s forwards;
 }
 
 #switch-theme button {
@@ -83,6 +82,13 @@ body * {
     border: none;
     border-radius: 50%;
     background: white var(--switch-mode) no-repeat center;
+    cursor: pointer;
+    animation: slide-back 0.2s;
+}
+
+#switch-theme button:hover {
+    outline: 8px solid var(--stroke-color);
+    transition: 0.2s;
 }
 
 #switch-theme span {
@@ -160,5 +166,25 @@ i {
 
     .light {
         --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    
+    to {
+        left: 0;
     }
 }
